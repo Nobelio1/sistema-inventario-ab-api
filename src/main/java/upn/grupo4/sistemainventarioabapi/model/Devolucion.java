@@ -34,7 +34,7 @@ public class Devolucion implements Serializable {
     @JoinColumn(name = "productoId", nullable = false)
     private Producto producto;
 
-    @Column(precision = 14, scale = 4, nullable = false)
+    @Column
     private Double cantidad;
 
     @Column(length = 255)

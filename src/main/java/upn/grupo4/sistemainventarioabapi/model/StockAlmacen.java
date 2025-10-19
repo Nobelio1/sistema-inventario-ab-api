@@ -32,7 +32,7 @@ public class StockAlmacen implements Serializable {
     @JoinColumn(name = "almacen_id", nullable = false)
     private Almacen almacen;
 
-    @Column(precision = 14, scale = 4)
+    @Column
     private Double cantidad = 0d;
 
     @Column(length = 100)

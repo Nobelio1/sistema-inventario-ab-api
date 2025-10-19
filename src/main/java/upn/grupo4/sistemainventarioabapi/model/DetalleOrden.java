@@ -28,15 +28,15 @@ public class DetalleOrden implements Serializable {
     @JoinColumn(name = "productoId", nullable = false)
     private Producto producto;
 
-    @Column(precision = 14, scale = 4, nullable = false)
+    @Column
     private Double cantidad;
 
-    @Column(precision = 14, scale = 2, nullable = false)
+    @Column
     private Double precioUnitario;
 
-    @Column(precision = 10, scale = 2)
+    @Column
     private Double descuento = 0d;
 
-    @Column(precision = 10, scale = 2)
+    @Column
     private Double impuesto = 0d;
 }

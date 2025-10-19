@@ -37,7 +37,7 @@ public class MovimientoInventario implements Serializable {
     @JoinColumn(name = "producto_id", nullable = false)
     private Producto producto;
 
-    @Column(precision = 14, scale = 4, nullable = false)
+    @Column
     private Double cantidad;
 
     @ManyToOne(fetch = FetchType.LAZY)
