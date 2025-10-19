@@ -3,6 +3,7 @@ package upn.grupo4.sistemainventarioabapi.model;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import upn.grupo4.sistemainventarioabapi.model.enums.EstadoOrden;
 import upn.grupo4.sistemainventarioabapi.model.enums.OrdenTipo;
 
 import java.io.Serial;
@@ -40,7 +41,8 @@ public class Orden implements Serializable {
     private LocalDateTime fecha;
 
     @Column(length = 30)
-    private String estado = "BORRADOR";
+    @Enumerated(EnumType.STRING)
+    private EstadoOrden estado = EstadoOrden.PENDIENTE;
 
     private Double subtotal;
     private Double impuesto;
