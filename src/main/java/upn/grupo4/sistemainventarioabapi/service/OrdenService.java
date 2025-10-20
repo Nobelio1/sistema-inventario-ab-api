@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import upn.grupo4.sistemainventarioabapi.dto.request.DetalleOrdenRequest;
 import upn.grupo4.sistemainventarioabapi.dto.request.OrdenRequest;
 import upn.grupo4.sistemainventarioabapi.dto.response.DataResponse;
+import upn.grupo4.sistemainventarioabapi.dto.response.OrdenResponse;
 import upn.grupo4.sistemainventarioabapi.model.*;
 import upn.grupo4.sistemainventarioabapi.model.enums.EstadoOrden;
 import upn.grupo4.sistemainventarioabapi.model.enums.OrdenTipo;
@@ -106,4 +107,26 @@ public class OrdenService {
             detalleOrdenRepository.save(detalleOrdenEntity);
         }
     }
+
+    public DataResponse<List<OrdenResponse>> obtenerOrdenes(){
+        List<OrdenResponse> ordenes = ordenRepository.findAll()
+                .stream()
+                .map(orden -> OrdenResponse.builder()
+                        .id(orden.getId())
+                        .tipo(orden.getTipo().name())
+                        .fecha(orden.getFecha().toString())
+                        .total(orden.getTotal())
+                        .estado(orden.getEstado().name())
+                        .creador(orden.getCreatedBy().getNombre())
+                        .build())
+                .toList();
+
+        return DataResponse.<List<OrdenResponse>>builder()
+                .success(true)
+                .message("Lista de ordenes obtenida correctamente")
+                .data(ordenes)
+                .build();
+    }
+
+
 }
