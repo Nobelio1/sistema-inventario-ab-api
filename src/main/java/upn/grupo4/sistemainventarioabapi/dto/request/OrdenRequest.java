@@ -1,12 +1,14 @@
 package upn.grupo4.sistemainventarioabapi.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrdenRequest {
 
     private Long idCliente;

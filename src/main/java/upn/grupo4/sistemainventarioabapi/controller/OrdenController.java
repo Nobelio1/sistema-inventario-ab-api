@@ -2,10 +2,7 @@ package upn.grupo4.sistemainventarioabapi.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import upn.grupo4.sistemainventarioabapi.dto.request.OrdenRequest;
 import upn.grupo4.sistemainventarioabapi.dto.response.DataResponse;
 import upn.grupo4.sistemainventarioabapi.dto.response.OrdenResponse;
@@ -20,7 +17,7 @@ public class OrdenController {
     private final OrdenService ordenService;
 
     @PostMapping("/compra")
-    public ResponseEntity<DataResponse<Object>> registrarCompra(OrdenRequest ordenRequest) {
+    public ResponseEntity<DataResponse<Object>> registrarCompra(@RequestBody OrdenRequest ordenRequest) {
         return ResponseEntity.ok(ordenService.registrarOrdenCompra(ordenRequest));
     }
 

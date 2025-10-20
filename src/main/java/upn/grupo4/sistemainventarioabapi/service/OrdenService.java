@@ -2,6 +2,7 @@ package upn.grupo4.sistemainventarioabapi.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import upn.grupo4.sistemainventarioabapi.dto.request.DetalleOrdenRequest;
 import upn.grupo4.sistemainventarioabapi.dto.request.OrdenRequest;
 import upn.grupo4.sistemainventarioabapi.dto.response.DataResponse;
@@ -25,6 +26,7 @@ public class OrdenService {
     private final ProductoService productoService;
 
     public DataResponse<Object> registrarOrdenCompra(OrdenRequest ordenRequest) {
+        System.out.println(ordenRequest);
         registrarOrden(ordenRequest, OrdenTipo.COMPRA);
         return DataResponse.builder()
                 .success(true)
@@ -108,6 +110,7 @@ public class OrdenService {
         }
     }
 
+    @Transactional(readOnly = true)
     public DataResponse<List<OrdenResponse>> obtenerOrdenes(){
         List<OrdenResponse> ordenes = ordenRepository.findAll()
                 .stream()

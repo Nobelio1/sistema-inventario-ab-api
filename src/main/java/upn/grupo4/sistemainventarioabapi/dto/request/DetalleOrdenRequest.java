@@ -2,9 +2,11 @@ package upn.grupo4.sistemainventarioabapi.dto.request;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
+import lombok.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class DetalleOrdenRequest {
 
     @NotBlank(message = "El idProducto no puede estar vacío")
