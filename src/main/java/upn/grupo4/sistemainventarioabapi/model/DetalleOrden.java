@@ -29,7 +29,7 @@ public class DetalleOrden implements Serializable {
     private Producto producto;
 
     @Column
-    private Double cantidad;
+    private Integer cantidad;
 
     @Column
     private Double precioUnitario;
