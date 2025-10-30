@@ -27,3 +27,8 @@ INSERT INTO dbo.producto (activo, barcode, created_at, created_by, descripcion, 
                                                                                                                                                                                                             (1, '0000000000001', GETDATE(), 1, 'Papa blanca de primera calidad', 'Papa Blanca', 2.50, 3.50, 'PAP001', 100, 10, 'kg', GETDATE(), 1, 5),
                                                                                                                                                                                                             (1, '7750885008742', GETDATE(), 1, 'Pan de molde integral', 'Pan Bimbo Integral 500g', 3.80, 5.20, 'PAN001', 40, 5, 'unidad', GETDATE(), 1, 6),
                                                                                                                                                                                                             (1, '7751002008963', GETDATE(), 1, 'Detergente en polvo concentrado', 'Ariel 1kg', 8.50, 12.00, 'DET001', 70, 10, 'unidad', GETDATE(), 1, 7);
+
+INSERT INTO dbo.usuario
+(activo, created_at, created_by, email, nombre, password_hash, updated_at, updated_by, username)
+VALUES
+    (1, SYSUTCDATETIME(), 1, 'usuario@ejemplo.com', 'Juan Pérez', 'REPLACE_WITH_BCRYPT_HASH', NULL, NULL, 'juanperez');
